@@ -1,1 +1,2 @@
-dev/assets/
+dev/assets/db/
+!dev/assets/corpus/
