@@ -1,31 +1,31 @@
 # RAG Research Assistance for AGORA AI Governance Documents (Ollama Phi-3.5-Mini, HF MPNet-V2)
 
-## Output Example:
+## Output example:
 
 <img width="640" height="360" alt="image" src="https://github.com/user-attachments/assets/95b0f631-9863-4d27-8072-41bd998575e1" />
 
-## ⚛︎ Project Overview:
+## ⚛︎ Project overview:
 This project utilize RAG systems to develop chatbot assistance for AGORA AI Governance Documents, sourced from https://www.kaggle.com/datasets/umerhaddii/ai-governance-documents-data.
 
-### 📦 Systems Requirements
+### 📦 Systems requirements
 - HuggingFace Mpnet-Base-v2 
 - Ollama Phi-3.5-Mini 
 - LangChain 
 - ChromaDB 
   
-### 💠 System Components:
+### 💠 System components:
 - **Embedding model**: Embed feature text semantics and user query into vector embeddings for vector search.
 - **Vector database**: Store text data: vector, text, metadata. Perform vector search (Metadata search is not impemented in this project).
 - **Generation model**: Generate response from given prompt (augmented prompt).
 
-### 🔀 System Flow:
+### 🔀 System flow:
 1. User prompt query.
 2. Query is passed to vector database search, through embedding model and perform search (similarity/max marginal relevenace).
 3. Vector database return retrieved Documents.
 4. Augment generation model prompts through adding context from Documents, plus system instructions.
 5. User received response from generation model.
 
-### 🔗 Systems Development:
+### ⚙️ Systems development:
 - **Text preprocessing**:
    - Transform each modular text entities into contextful data load.
    - Context injection: Adding document's overview and usecase semantic as high-level context into text content.
