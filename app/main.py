@@ -1,10 +1,10 @@
-from app.gen_model import PhiMiniModel
+from app.model import OllamaModel
 from app.rag import AgoraRAG
 from app.vector_store import ChromaDB
 
 if __name__ == "__main__":
     vector_store = ChromaDB()
-    gen_model = PhiMiniModel()
+    gen_model = OllamaModel()
     rag = AgoraRAG(vector_store, gen_model)
 
     print(f"\nWelcome to AGORA AI Governance Chat Assistant! "
@@ -17,8 +17,5 @@ if __name__ == "__main__":
             is_running = False
             print(f"Thank you for using AGORA AI Chat Assistant and see you again!")
             break
-        print("🔍 Searching documents...")
-        respond = rag.run(request)
-        print(f'Respond: \n{respond}\n')
-
+        rag.run(request)
 
