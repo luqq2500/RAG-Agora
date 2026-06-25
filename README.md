@@ -5,7 +5,7 @@
 <img width="640" height="360" alt="image" src="https://github.com/user-attachments/assets/95b0f631-9863-4d27-8072-41bd998575e1" />
 
 ## ⚛︎ Project overview:
-This project utilize RAG systems to develop chatbot assistance for AGORA AI Governance Documents, sourced from https://www.kaggle.com/datasets/umerhaddii/ai-governance-documents-data.
+This project utilize RAG systems to develop research assistance for AGORA AI Governance Documents, sourced from https://www.kaggle.com/datasets/umerhaddii/ai-governance-documents-data.
 
 ### 📦 Systems requirements
 - HuggingFace Mpnet-Base-v2 
