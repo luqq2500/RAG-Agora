@@ -12,7 +12,23 @@ This project utilize RAG systems to develop research assistance for AGORA AI Gov
 - Ollama Phi-3.5-Mini 
 - LangChain 
 - ChromaDB 
-  
+
+### 💻 Installation & Setup
+```bash
+# 1. Initialize Git LFS
+git lfs install
+
+# 2. Clone the repo and enter it
+git clone https://github.com
+cd RAG-Agora
+
+# 3. Pull the large database files
+git lfs pull
+
+# 4. Install dependencies
+pip install -r requirements.txt
+```
+ 
 ### 💠 System components:
 - **Embedding model**: Embed feature text semantics and user query into vector embeddings for vector search.
 - **Vector database**: Store text data: vector, text, metadata. Perform vector search (Metadata search is not impemented in this project).
