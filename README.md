@@ -15,17 +15,17 @@ This project utilize RAG systems to develop research assistance for AGORA AI Gov
 
 ### 💻 Installation & Setup
 ```bash
-# 1. Initialize Git LFS
+# 1. Initialize Git LFS for pulling large database files
 git lfs install
 
-# 2. Clone the repo and enter it
+# 2. Clone the repo
 git clone https://github.com
 cd RAG-Agora
 
-# 3. Pull the large database files
+# 3. Pull large database files
 git lfs pull
 
-# 4. Install dependencies
+# 4. Install repo  dependencies
 pip install -r requirements.txt
 ```
  
