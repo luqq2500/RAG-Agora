@@ -15,23 +15,20 @@ preprocessing.py codebase is dedicated for preprocessing AGORA raw text entities
 1. Document: Segment, segment summary, long summary, short summary
 2. Collection: Description
 
-# Document from LangChain core is used to store content and metadata.
-
 # Preprocessing strategy applied:
 1. Macro context injection: document overview, usecase policy.
 2. Chunking: chunk large texts
 3. Metadata: document, usecase policy, chunk indices
-4. Stream data using yield and generator for memory efficient. 
 
 # Key methods:
-    1. prepare_segment_docs(): To prepare document segments Documents.
-    2. prepare_segment_summary_docs(): To prepare document segment summary Documents.
-    3. prepare_long_summary_docs(): To prepare document long summary Documents.
-    4. prepare_short_summary_docs(): To prepare document short summary Documents.
+    1. segment_docs_generator(): Stream segment Documents.
+    2. segment_summary_docs_generator(): Stream 
+    3. long_summary_docs_generator(): To prepare document long summary Documents.
+    4. short_summary_docs_generator(): To prepare document short summary Documents.
 
 '''
 
-def prepare_collection_desc_docs():
+def stream_collection_desc_docs():
     df = pd.read_csv(collections_path)
     for index, row in df.iterrows():
         content = row.get('Description')
@@ -39,7 +36,7 @@ def prepare_collection_desc_docs():
         metadata = {'collection': collection_context}
         yield Document(page_content=content, metadata=metadata)
 
-def prepare_segment_summary_docs(text_splitter: RecursiveCharacterTextSplitter)->Generator[Document, None, None]:
+def stream_segment_summary_docs(text_splitter: RecursiveCharacterTextSplitter)->Generator[Document, None, None]:
     df = merge_segment_document_authorities()
     for index, row in df.iterrows():
         content = row.get("Summary")
@@ -63,7 +60,7 @@ def prepare_segment_summary_docs(text_splitter: RecursiveCharacterTextSplitter)-
             metadata = {**document_metadata, **chunk_metadata, **segment_metadata}
             yield Document(page_content=chunk_content, metadata=metadata)
 
-def prepare_segment_docs(text_splitter: RecursiveCharacterTextSplitter)->Generator[Document, None, None]:
+def stream_segment_docs(text_splitter: RecursiveCharacterTextSplitter)->Generator[Document, None, None]:
     df = merge_segment_document_authorities()
     for index, row in df.iterrows():
         content = row.get("Text")
@@ -86,7 +83,7 @@ def prepare_segment_docs(text_splitter: RecursiveCharacterTextSplitter)->Generat
             metadata = {**document_metadata, **chunk_metadata, **segment_metadata}
             yield Document(page_content=chunk_content, metadata=metadata)
 
-def prepare_long_summary_document_docs(text_splitter: RecursiveCharacterTextSplitter, target_column='Long summary')->Generator[Document, None, None]:
+def stream_long_summary_docs(text_splitter: RecursiveCharacterTextSplitter, target_column='Long summary')->Generator[Document, None, None]:
     df = merge_document_authorities()
     for index, row in df.iterrows():
         content = row.get(target_column)
@@ -101,7 +98,7 @@ def prepare_long_summary_document_docs(text_splitter: RecursiveCharacterTextSpli
             metadata = {**document_metadata, **chunk_metadata}
             yield Document(page_content=chunk_content, metadata=metadata)
 
-def prepare_short_summary_document_docs()->Generator[Document, None, None]:
+def stream_short_summary_docs()->Generator[Document, None, None]:
     df = merge_document_authorities()
     for index, row in df.iterrows():
         content = row.get("Short summary")
@@ -256,22 +253,22 @@ def get_all_document_texts(path=fulltext_path):
 if __name__ == "__main__":
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=1200, chunk_overlap=100)
 
-    long_docs = prepare_long_summary_document_docs(text_splitter)
+    long_docs = stream_long_summary_docs(text_splitter)
     print(f'Long summary documents')
     for i, doc in enumerate(long_docs):
         print(f'Document {i}: \n{doc}\n')
 
-    short_docs = prepare_short_summary_document_docs()
+    short_docs = stream_short_summary_docs()
     print(f'Short summary documents')
     for i, doc in enumerate(short_docs):
         print(f'Document {i}: \n{doc}\n')
 
-    segment_docs = prepare_segment_docs(text_splitter)
+    segment_docs = stream_segment_docs(text_splitter)
     print(f'Segment documents')
     for i, doc in enumerate(segment_docs):
         print(f'Document {i}: \n{doc}\n')
 
-    segment_summary_docs = prepare_segment_summary_docs(text_splitter)
+    segment_summary_docs = stream_segment_summary_docs(text_splitter)
     print(f'Segment summary documents')
     for i, doc in enumerate(segment_summary_docs):
         print(f'Document {i}: \n{doc}\n')
