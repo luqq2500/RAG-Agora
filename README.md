@@ -51,7 +51,8 @@ python -m app.main
    - Metadata injection: Adding semantic text metadata include unique identifier (AGORA Document ID), categories (Authorities, usecases), and chunk portions. 
 - **Injection**:
   - Utilize Chroma DB as vector database for its vector search, embeded embedding function, and file-based database capability.
-  - Add all Documents entities with embedding models into vector database.
+  - Stream documents using Python's lazy iterator 'Generator' for efficient memory use.
+  - Add all documents entities with embedding models into vector database.
 - **Prompt Engineering**:
   - Provide Generation Model systems instructions to maximize context understanding, accurrate response, minimize hallucinations.
   - Provide Generation Model professional tonality.
