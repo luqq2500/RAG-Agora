@@ -7,12 +7,30 @@
 ## ⚛︎ Project overview:
 This project utilize RAG systems to develop research assistance for AGORA AI Governance Documents, sourced from https://www.kaggle.com/datasets/umerhaddii/ai-governance-documents-data.
 
-### 📦 Systems requirements
-- HuggingFace Mpnet-Base-v2 
-- Ollama Phi-3.5-Mini 
-- LangChain 
-- ChromaDB 
-  
+
+### 💻 Installation
+
+1. **Clone the repo**
+```bash
+git clone https://github.com
+cd RAG-Agora
+```
+2. **Setup environment**
+
+```bash
+# Initialize LFS to pull large size files
+git lfs install
+git lfs pull
+
+# Install required dependencies
+pip install -r requirements.txt
+```
+
+3. **Run application**
+```bash
+python -m app.main
+```
+ 
 ### 💠 System components:
 - **Embedding model**: Embed feature text semantics and user query into vector embeddings for vector search.
 - **Vector database**: Store text data: vector, text, metadata. Perform vector search (Metadata search is not impemented in this project).
