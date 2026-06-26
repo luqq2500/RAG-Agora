@@ -7,26 +7,28 @@
 ## ⚛︎ Project overview:
 This project utilize RAG systems to develop research assistance for AGORA AI Governance Documents, sourced from https://www.kaggle.com/datasets/umerhaddii/ai-governance-documents-data.
 
-### 📦 Systems requirements
-- HuggingFace Mpnet-Base-v2 
-- Ollama Phi-3.5-Mini 
-- LangChain 
-- ChromaDB 
 
-### 💻 Installation & Setup
+### 💻 Installation
+
+1. **Clone the repo**
 ```bash
-# 1. Initialize Git LFS for pulling large database files
-git lfs install
-
-# 2. Clone the repo
 git clone https://github.com
 cd RAG-Agora
+```
+2. **Setup environment**
 
-# 3. Pull large database files
+```bash
+# Initialize LFS to pull large size files
+git lfs install
 git lfs pull
 
-# 4. Install repo  dependencies
+# Install required dependencies
 pip install -r requirements.txt
+```
+
+3. **Run application**
+```bash
+python -m app.main
 ```
  
 ### 💠 System components:
