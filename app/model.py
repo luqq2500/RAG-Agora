@@ -14,8 +14,8 @@ class GenerationModel(ABC):
 class OllamaModel(GenerationModel):
     def __init__(self, model: str='phi3.5:latest', temperature: float=0.3):
         try:
-            self.model = ChatOllama(model=model, temperature=temperature) # maximize context, minimize creative
-            self.model.invoke("hi")
+            self.model = ChatOllama(model=model, temperature=temperature)
+            self.model.invoke("")
         except Exception as e:
             raise RuntimeError(f"Ollama model {model} is not reachable: {e}")
 
