@@ -18,7 +18,7 @@ cd RAG-Agora
 2. **Setup environment**
 
 ```bash
-# Initialize LFS to pull large size files
+# Initialize LFS to pull required large size files
 git lfs install
 git lfs pull
 
