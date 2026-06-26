@@ -26,15 +26,15 @@ This project utilize RAG systems to develop research assistance for AGORA AI Gov
 5. User received response from generation model.
 
 ### ⚙️ Systems development:
-- **Text preprocessing**:
-   - Transform each modular text entities into contextful data load.
+- **Preprocessing**:
+   - Transform each modular semantic entities into contextful Document.
    - Context injection: Adding document's overview and usecase semantic as high-level context into text content.
    - Chunking: Chunk large texts into smaller chunks, with chunk overlaps.
    - Metadata injection: Adding semantic text metadata include unique identifier (AGORA Document ID), categories (Authorities, usecases), and chunk portions. 
-- **Document injection**:
+- **Injection**:
   - Utilize Chroma DB as vector database for its vector search, embeded embedding function, and file-based database capability.
   - Add all Documents entities with embedding models into vector database.
-- **Promt Engineering**:
+- **Prompt Engineering**:
   - Provide Generation Model systems instructions to maximize context understanding, accurrate response, minimize hallucinations.
   - Provide Generation Model professional tonality.
   - Augment Generation Model user prompts to always include text high-level context and metadata from retrievals. 
