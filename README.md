@@ -76,7 +76,7 @@ ollama pull phi3.5
 - **Linux & MacOS**
 ```bash
 # Install Ollama via PowerShell (Run as Administrator)
-curl -fsSL https://ollama.com | sh
+curl -fsSL https://ollama.com/install.sh | sh
 
 # Pull required model Phi-3.5-Mini
 ollama pull phi3.5
