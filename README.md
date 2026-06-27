@@ -64,8 +64,25 @@ git lfs pull
 # Install required dependencies
 pip install -r requirements.txt
 ```
+3. **Ollama Installation & Setup**
+- **Windows**
+```bash
+# Install Ollama via PowerShell (Run as Administrator)
+irm https://ollama.com | iex
 
-3. **Run application**
+# Pull required model Phi-3.5-Mini
+ollama pull phi3.5
+```
+- **Linux & MacOS**
+```bash
+# Install Ollama via PowerShell (Run as Administrator)
+curl -fsSL https://ollama.com | sh
+
+# Pull required model Phi-3.5-Mini
+ollama pull phi3.5
+```
+ 
+4. **Run application**
 ```bash
 python -m app.main
 ```
