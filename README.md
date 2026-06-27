@@ -6,30 +6,6 @@
 
 ## ⚛︎ Project overview:
 This project utilize RAG systems to develop research assistance for AGORA AI Governance Documents, sourced from https://www.kaggle.com/datasets/umerhaddii/ai-governance-documents-data.
-
-
-### 💻 Installation
-
-1. **Clone the repo**
-```bash
-git clone https://github.com
-cd RAG-Agora
-```
-2. **Setup environment**
-
-```bash
-# Initialize LFS to pull required large size files
-git lfs install
-git lfs pull
-
-# Install required dependencies
-pip install -r requirements.txt
-```
-
-3. **Run application**
-```bash
-python -m app.main
-```
  
 ### 💠 System components:
 - **Embedding model**: Embed feature text semantics and user query into vector embeddings for vector search.
@@ -62,5 +38,25 @@ python -m app.main
   - CLI-based interface
   - Stream-based Generation Model response (Generator, yield) to combat frozen, inefficient memory use.
      
+### 💻 Installation
+1. **Clone the repo**
+```bash
+git clone https://github.com
+cd RAG-Agora
+```
+2. **Setup environment**
 
+```bash
+# Initialize LFS to pull required large size files
+git lfs install
+git lfs pull
+
+# Install required dependencies
+pip install -r requirements.txt
+```
+
+3. **Run application**
+```bash
+python -m app.main
+```
 
