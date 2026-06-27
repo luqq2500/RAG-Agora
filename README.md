@@ -1,4 +1,4 @@
-# RAG for AGORA AI Governance Documents (Ollama Phi-3.5-Mini, HF MPNet-V2)
+# RAG for AGORA AI Governance Research Assistant (Ollama Phi-3.5-Mini, HF MPNet-V2)
 
 ## Output example:
 
