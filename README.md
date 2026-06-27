@@ -5,21 +5,31 @@
 <img width="640" height="360" alt="image" src="https://github.com/user-attachments/assets/95b0f631-9863-4d27-8072-41bd998575e1" />
 
 ## ⚛︎ Project overview:
-This project utilize RAG systems to develop research assistance for AGORA AI Governance Documents, sourced from https://www.kaggle.com/datasets/umerhaddii/ai-governance-documents-data.
- 
-### 💠 System components:
+This project utilize RAG systems to develop research assistance for AGORA AI Governance Documents, sourced from https://www.kaggle.com/datasets/umerhaddii/ai-governance-documents-data. 
+
+The system is powered by:
+- 🤗 HuggingFace Mpnet-b2 model for text embeddings
+- 🦙 Ollama Phi-3.5-Mini generation model for inference
+- 🛢 Chroma for vector database.
+
+See contents:
+- [System Overview](#system-overview)
+- [Installation](#-installation)
+
+## System Overview
+### 💠 Components:
 - **Embedding model**: Embed feature text semantics and user query into vector embeddings for vector search.
 - **Vector database**: Store text data: vector, text, metadata. Perform vector search (Metadata search is not impemented in this project).
 - **Generation model**: Generate response from given prompt (augmented prompt).
 
-### 🔀 System flow:
+### 🔀 Flow:
 1. User prompt query.
 2. Query is passed to vector database search, through embedding model and perform search (similarity/max marginal relevenace).
 3. Vector database return retrieved Documents.
 4. Augment generation model prompts through adding context from Documents, plus system instructions.
 5. User received response from generation model.
 
-### ⚙️ Systems development:
+### ⚙️ Development:
 - **Preprocessing**:
    - Transform each modular semantic entities into contextful Document.
    - Context injection: Adding document's overview and usecase semantic as high-level context into text content.
@@ -38,7 +48,7 @@ This project utilize RAG systems to develop research assistance for AGORA AI Gov
   - CLI-based interface
   - Stream-based Generation Model response (Generator, yield) to combat frozen, inefficient memory use.
      
-### 💻 Installation
+## 💻 Installation
 1. **Clone the repo**
 ```bash
 git clone https://github.com
