@@ -35,7 +35,7 @@ See contents:
    - Context injection: Adding document's overview and usecase semantic as high-level context into text content.
    - Chunking: Chunk large texts into smaller chunks, with chunk overlaps.
    - Metadata injection: Adding semantic text metadata include unique identifier (AGORA Document ID), categories (Authorities, usecases), and chunk portions. 
-- **Injection**:
+- **Ingestion**:
   - Utilize Chroma DB as vector database for its vector search, embeded embedding function, and file-based database capability.
   - Stream documents using Python's lazy iterator 'Generator' for efficient memory use.
   - Add all documents entities with embedding models into vector database.
